@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Sventas.comun;
 using Sventas.Data;
+using Sventas.Servicios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +35,7 @@ namespace Sventas
 
 
             services.AddScoped<PuestosServ, PuestosDat>();
+            services.AddScoped<MarcasServi, MarcasDat>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
