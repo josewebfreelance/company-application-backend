@@ -36,6 +36,7 @@ namespace Sventas
 
             services.AddScoped<PuestosServ, PuestosDat>();
             services.AddScoped<MarcasServi, MarcasDat>();
+            services.AddScoped<ClientesServi, ClientesData>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
