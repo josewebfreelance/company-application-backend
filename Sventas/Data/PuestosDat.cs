@@ -94,6 +94,7 @@ namespace Sventas.Data
                     if (con.State == ConnectionState.Closed) con.Open();
 
                     var opuestos = con.Query<PuestosMod>("SP_PUESTOS", this.SetParameters(oPuesto, opcSP), 
+
                         commandType:CommandType.StoredProcedure);
 
                     if(opuestos != null && opuestos.Count() > 0)
