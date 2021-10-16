@@ -1,36 +1,29 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Junior\\source\\repos\\Sventas\\Sventas\\Sventas.csproj": {}
+    "/home/jlemus/UNIVERSIDAD/DESARROLLO_WEB/PROYECTO_FINAL/company-application-backend/Sventas/Sventas.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Junior\\source\\repos\\Sventas\\Sventas\\Sventas.csproj": {
+    "/home/jlemus/UNIVERSIDAD/DESARROLLO_WEB/PROYECTO_FINAL/company-application-backend/Sventas/Sventas.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Junior\\source\\repos\\Sventas\\Sventas\\Sventas.csproj",
+        "projectUniqueName": "/home/jlemus/UNIVERSIDAD/DESARROLLO_WEB/PROYECTO_FINAL/company-application-backend/Sventas/Sventas.csproj",
         "projectName": "Sventas",
-        "projectPath": "C:\\Users\\Junior\\source\\repos\\Sventas\\Sventas\\Sventas.csproj",
-        "packagesPath": "C:\\Users\\Junior\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Junior\\source\\repos\\Sventas\\Sventas\\obj\\",
+        "projectPath": "/home/jlemus/UNIVERSIDAD/DESARROLLO_WEB/PROYECTO_FINAL/company-application-backend/Sventas/Sventas.csproj",
+        "packagesPath": "/home/jlemus/.nuget/packages/",
+        "outputPath": "/home/jlemus/UNIVERSIDAD/DESARROLLO_WEB/PROYECTO_FINAL/company-application-backend/Sventas/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Junior\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/jlemus/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -42,7 +35,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Dapper": {
               "target": "Package",
@@ -71,7 +63,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.408/RuntimeIdentifierGraph.json"
         }
       }
     }
