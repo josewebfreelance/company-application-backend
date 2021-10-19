@@ -58,7 +58,7 @@ namespace Sventas.Data
 
                 if (omarcas != null && omarcas.Count() > 0)
                 {
-                    _ = omarcas.SingleOrDefault();
+                    _omarca = omarcas.SingleOrDefault();
                 }
             }
             return _omarca;

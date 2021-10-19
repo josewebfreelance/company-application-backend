@@ -12,87 +12,92 @@ using static Sventas.comun.OpcionesSP;
 
 namespace Sventas.Data
 {
-    public class ProveedoresDat : ProveedoresServi
+    public class ProveedorDat : ProveedorServi
     {
-        ProveedoresMod _oproveedor = new ProveedoresMod();
-        List<ProveedoresMod> _opreveedores = new List<ProveedoresMod>();
-        public string Delete(int idProveedor)
+        ProveedorMod _oproveedor = new ProveedorMod();
+        List<ProveedorMod> _oproveedores = new List<ProveedorMod>();
+        public string Delete(int idproveedor)
         {
+            string mensaje = "";
+
             try
             {
-                _oproveedor = new ProveedoresMod()
+                _oproveedor = new ProveedorMod()
                 {
-                    idproveedor = idProveedor
+                    idProveedor = idproveedor
                 };
 
                 using (IDbConnection con = new SqlConnection(Cglobal.ConnectionString))
                 {
                     if (con.State == ConnectionState.Closed) con.Open();
 
-                    var oproveedor = con.Query<ProveedoresMod>("SP_PROVEEDORES", this.SetParameters(_oproveedor, (int)OpcionSP.Delete),
+                    var oproveedores = con.Query<ProveedorMod>("SP_PROVEEDORES", this.SetParameters(_oproveedor, (int)OpcionSP.Delete),
                         commandType: CommandType.StoredProcedure);
 
-
+                    mensaje = "Registro Eliminado";
                 }
 
             }
             catch (Exception ex)
             {
 
-
+                mensaje = ex.Message;
             }
 
-            return null;
+            return mensaje;
+            
         }
 
-        public ProveedoresMod Get(int idProveedor)
+        public ProveedorMod Get(int idProveedor)
         {
-            _oproveedor = new ProveedoresMod();
+            _oproveedor = new ProveedorMod();
 
             using (IDbConnection con = new SqlConnection(Cglobal.ConnectionString))
             {
                 if (con.State == ConnectionState.Closed) con.Open();
+                var query =("SELECT *FROM PROVEEDORES WHERE idProveedor = " + idProveedor);
 
-                var oproveedor = con.Query<MarcasMod>("SELECT *FROM PROVEEDORES WHERE idProveedor = " + idProveedor).ToList();
+                var oproveedores = con.Query<ProveedorMod>(query).ToList();
 
-                if (oproveedor != null && oproveedor.Count() > 0)
+                if (oproveedores != null && oproveedores.Count() > 0)
                 {
-                    _ = oproveedor.SingleOrDefault();
+                    _oproveedor = oproveedores.SingleOrDefault();
                 }
             }
             return _oproveedor;
         }
 
-        public List<ProveedoresMod> Gets()
+        public List<ProveedorMod> Gets()
         {
-            _opreveedores = new List<ProveedoresMod>();
 
             using (IDbConnection con = new SqlConnection(Cglobal.ConnectionString))
             {
                 if (con.State == ConnectionState.Closed) con.Open();
 
-                var oproveedores = con.Query<ProveedoresMod>("SELECT *FROM PROVEEDORES").ToList();
+                var query = "select *from proveedores";
+
+                var oproveedores = con.Query<ProveedorMod>(query).ToList();
 
                 if (oproveedores != null && oproveedores.Count() > 0)
                 {
-                    _opreveedores = oproveedores;
+                    _oproveedores = oproveedores;
                 }
             }
-            return _opreveedores;
+            return _oproveedores;
         }
 
-        public ProveedoresMod Save(ProveedoresMod omProveedor)
+        public ProveedorMod Save(ProveedorMod oProveedor)
         {
-            _oproveedor = new ProveedoresMod();
+            _oproveedor = new ProveedorMod();
             try
             {
-                int opcSP = Convert.ToInt32(omProveedor.idproveedor == 0 ? OpcionSP.Insert : OpcionSP.Update);
+                int opcSP = Convert.ToInt32(oProveedor.idProveedor == 0 ? OpcionSP.Insert : OpcionSP.Update);
 
                 using (IDbConnection con = new SqlConnection(Cglobal.ConnectionString))
                 {
                     if (con.State == ConnectionState.Closed) con.Open();
 
-                    var oproveedores = con.Query<ProveedoresMod>("SP_PROVEEDORES", this.SetParameters(omProveedor, opcSP),
+                    var oproveedores = con.Query<ProveedorMod>("SP_PROVEEDORES", this.SetParameters(oProveedor, opcSP),
 
                         commandType: CommandType.StoredProcedure);
 
@@ -105,21 +110,23 @@ namespace Sventas.Data
             catch (Exception ex)
             {
 
-
+               
             }
             return _oproveedor;
         }
 
-        private DynamicParameters SetParameters(ProveedoresMod oproveedor, int opcSP)
+        private DynamicParameters SetParameters(ProveedorMod oproveedor, int opcSP)
         {
             DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("@idproveedor", oproveedor.idproveedor);
+            parameters.Add("@idproveedor", oproveedor.idProveedor);
             parameters.Add("@proveedor", oproveedor.proveedor);
-            parameters.Add("@nit", oproveedor.nitp);
-            parameters.Add("@direccion", oproveedor.direccionp);
-            parameters.Add("@telefono", oproveedor.telefonop);
+            parameters.Add("@nit", oproveedor.nit);
+            parameters.Add("@direccion", oproveedor.direccion);
+            parameters.Add("@telefono", oproveedor.telefono);
             parameters.Add("@OPC", opcSP);
+            parameters.Add("@cMensaje", opcSP);
             return parameters;
         }
+
     }
 }

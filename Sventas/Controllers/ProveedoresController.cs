@@ -14,33 +14,35 @@ namespace Sventas.Controllers
     [ApiController]
     public class ProveedoresController : ControllerBase
     {
+        private ProveedorServi _proveedoresServ;
 
-        private ProveedoresServi _proveedoresserv;
-
-        public ProveedoresController(ProveedoresServi oproveedoresservi)
+        public ProveedoresController(ProveedorServi oproveedorServi)
         {
-            _proveedoresserv = oproveedoresservi;
+            _proveedoresServ = oproveedorServi;
 
         }
+
+
+
         // GET: api/<ProveedoresController>
         [HttpGet]
-        public IEnumerable<ProveedoresMod> Get()
+        public IEnumerable<ProveedorMod> Get()
         {
-            return _proveedoresserv.Gets();
+            return _proveedoresServ.Gets();
         }
 
         // GET api/<ProveedoresController>/5
         [HttpGet("{id}")]
-        public ProveedoresMod Get(int id)
+        public ProveedorMod Get(int id)
         {
-            return _proveedoresserv.Get(id);
+            return _proveedoresServ.Get(id);
         }
 
         // POST api/<ProveedoresController>
         [HttpPost]
-        public ProveedoresMod Post([FromBody] ProveedoresMod oproveedoresmod)
+        public ProveedorMod Post([FromBody] ProveedorMod oproveedoresMod)
         {
-            if (ModelState.IsValid) return _proveedoresserv.Save(oproveedoresmod);
+            if (ModelState.IsValid) return _proveedoresServ.Save(oproveedoresMod);
             return null;
         }
 
@@ -54,7 +56,7 @@ namespace Sventas.Controllers
         [HttpDelete("{id}")]
         public string Delete(int id)
         {
-            return _proveedoresserv.Delete(id);
+            return _proveedoresServ.Delete(id);
         }
     }
 }
