@@ -30,7 +30,7 @@ namespace Sventas.Data
                 {
                     if (con.State == ConnectionState.Closed) con.Open();
 
-                    var opuestos = con.Query<MarcasMod>("SP_MARCAS", this.SetParameters(_omarca, (int)OpcionSP.Delete),
+                    var omarcas = con.Query<MarcasMod>("SP_MARCAS", this.SetParameters(_omarca, (int)OpcionSP.Delete),
                         commandType: CommandType.StoredProcedure);
 
                    
@@ -58,7 +58,7 @@ namespace Sventas.Data
 
                 if (omarcas != null && omarcas.Count() > 0)
                 {
-                    _ = omarcas.SingleOrDefault();
+                    _omarca = omarcas.SingleOrDefault();
                 }
             }
             return _omarca;
