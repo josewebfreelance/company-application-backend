@@ -42,6 +42,9 @@ namespace Sventas
             services.AddScoped<EmpleadosServi, EmpleadoDat>();
             services.AddScoped<VentasServi, VentasDat>();
             services.AddScoped<VentasDetalleServi, VentasDetalleDat>();
+            services.AddScoped<ComprasServi, ComprasDat>();
+            services.AddScoped<ComprasDetalleServi, ComprasDetalleDat>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
