@@ -16,6 +16,6 @@ namespace Sventas.Modelos
 
         public string telefono { get; set; }
         public string correo { get; set; }
-        public DateTime fechaingreso { get; set; }
+        public DateTimeOffset fecha_ingreso { get; set; }
     }
 }

@@ -121,7 +121,7 @@ namespace Sventas.Data
             parameters.Add("@genero", oclientes.genero);
             parameters.Add("@telefono", oclientes.telefono);
             parameters.Add("@correo", oclientes.correo);
-            parameters.Add("@fecha_ingreso", oclientes.fechaingreso);
+            parameters.Add("@fecha_ingreso", oclientes.fecha_ingreso);
             parameters.Add("@OPC", opcSP);
             return parameters;
         }
