@@ -14,5 +14,7 @@ namespace Sventas.Modelos
 
         public DateTimeOffset fecha_orden { get; set; }
         public DateTimeOffset fechaingreso { get; set; }
+
+        public int estadoCompra { get; set; }
     }
 }

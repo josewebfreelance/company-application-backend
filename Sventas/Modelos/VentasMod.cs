@@ -16,6 +16,8 @@ namespace Sventas.Modelos
         public int idEmpleado { get; set; }
         public DateTimeOffset fechaingreso { get; set; }
 
+        public int estadoVenta { get; set; }
+
 
 
     }

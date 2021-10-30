@@ -119,6 +119,7 @@ namespace Sventas.Data
             parameters.Add("@idProveedor", ocompra.idProveedor);
             parameters.Add("@fecha_orden", ocompra.fecha_orden);
             parameters.Add("@fechaingreso", ocompra.fechaingreso);
+            parameters.Add("@estadoCompra", ocompra.estadoCompra);
             parameters.Add("@OPC", opcSP);
 
             return parameters;

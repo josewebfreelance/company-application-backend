@@ -123,6 +123,7 @@ namespace Sventas.Data
             parameters.Add("@idCliente", oventa.idCliente);
             parameters.Add("@idEmpleado", oventa.idEmpleado);
             parameters.Add("@fechaingreso", oventa.fechaingreso);
+            parameters.Add("@estadoVenta", oventa.estadoVenta);
             parameters.Add("@OPC", opcSP);
           
             return parameters;
