@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Sventas.Modelos;
 using Sventas.Servicios;
 using System;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace Sventas.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class VentasController : ControllerBase
@@ -43,11 +45,11 @@ namespace Sventas.Controllers
             return null;
         }
 
-        // PUT api/<VentasController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
+        //// PUT api/<VentasController>/5
+        //[HttpPut("{id}")]
+        //public void Put(int id, [FromBody] string value)
+        //{
+        //}
 
         // DELETE api/<VentasController>/5
         [HttpDelete("{id}")]

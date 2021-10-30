@@ -84,6 +84,24 @@ namespace Sventas.Data
             return _comprasdetalles;
         }
 
+        public List<ComprasDetalleMod> Getscom(int idcom)
+        {
+            using (IDbConnection con = new SqlConnection(Cglobal.ConnectionString))
+            {
+                if (con.State == ConnectionState.Closed) con.Open();
+
+                var query = ("select *from COMPRAS_DETALLE where idCompra=" + idcom);
+
+                var ocomprasdetalle = con.Query<ComprasDetalleMod>(query).ToList();
+
+                if (ocomprasdetalle != null && ocomprasdetalle.Count() > 0)
+                {
+                    _comprasdetalles = ocomprasdetalle;
+                }
+            }
+            return _comprasdetalles;
+        }
+
         public ComprasDetalleMod Save(ComprasDetalleMod oComprasDetalleMod)
         {
             _compradetalle = new ComprasDetalleMod();

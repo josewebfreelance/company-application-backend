@@ -28,6 +28,14 @@ namespace Sventas.Controllers
             return _VentasDetalleServi.Gets();
         }
 
+        [HttpGet("[action]/{id}")]
+        public IEnumerable<VentasDetalleMod> Getall(int id)
+        {
+            return _VentasDetalleServi.Getsventa(id);
+        }
+
+
+
         // GET api/<VentasDetalleController>/5
         [HttpGet("{id}")]
         public VentasDetalleMod Get(int id)
@@ -43,11 +51,11 @@ namespace Sventas.Controllers
             return null;
         }
 
-        // PUT api/<VentasDetalleController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
+        //// PUT api/<VentasDetalleController>/5
+        //[HttpPut("{id}")]
+        //public void Put(int id, [FromBody] string value)
+        //{
+        //}
 
         // DELETE api/<VentasDetalleController>/5
         [HttpDelete("{id}")]

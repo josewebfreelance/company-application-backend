@@ -12,5 +12,8 @@ namespace Sventas.Servicios
         List<VentasDetalleMod> Gets();
         VentasDetalleMod Get(int idventadetalle);
         string Delete(int idventadetalle);
+
+        List<VentasDetalleMod> Getsventa(int idvdetalle);
+
     }
 }

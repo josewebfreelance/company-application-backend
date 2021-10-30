@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -6,12 +7,14 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using Sventas.comun;
 using Sventas.Data;
 using Sventas.Servicios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Sventas
@@ -29,6 +32,28 @@ namespace Sventas
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(options =>
+            {
+                options.Authority = "https://localhost:44388";
+                //options.ClaimsIssuer = "myapi.com";
+                //options.Audience = "myapi.com";
+                options.SaveToken = true;
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+
+                    ValidateAudience = true,
+                    ValidAudience = "Audience",
+                    ValidateIssuer = true,
+                    ValidIssuer = "localhost:44388",
+                    RequireExpirationTime = false,
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("abcdefghi12345")),
+
+                   
+                };
+                options.RequireHttpsMetadata = false;
+            });
 
             services.AddSingleton<IConfiguration>(Configuration);
             Cglobal.ConnectionString = Configuration.GetConnectionString("dbEMPRESA");
@@ -44,6 +69,7 @@ namespace Sventas
             services.AddScoped<VentasDetalleServi, VentasDetalleDat>();
             services.AddScoped<ComprasServi, ComprasDat>();
             services.AddScoped<ComprasDetalleServi, ComprasDetalleDat>();
+            services.AddScoped<LoginServi, LoginDat>();
 
         }
 
@@ -59,11 +85,14 @@ namespace Sventas
                 options => options.SetIsOriginAllowed(x => _ = true).AllowAnyMethod().AllowAnyHeader().AllowCredentials()
             );
 
+           
+
             app.UseHttpsRedirection();
-
+           
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
+
 
             app.UseEndpoints(endpoints =>
             {

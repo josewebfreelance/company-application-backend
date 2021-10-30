@@ -29,6 +29,13 @@ namespace Sventas.Controllers
             return _ComprasDetalleServi.Gets();
         }
 
+
+        [HttpGet("[action]/{id}")]
+        public IEnumerable<ComprasDetalleMod> Getallcom(int id)
+        {
+            return _ComprasDetalleServi.Getscom(id);
+        }
+
         // GET api/<ComprasDetalleController>/5
         [HttpGet("{id}")]
         public ComprasDetalleMod Get(int id)

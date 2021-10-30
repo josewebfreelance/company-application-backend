@@ -12,5 +12,7 @@ namespace Sventas.Servicios
         List<ComprasDetalleMod> Gets();
         ComprasDetalleMod Get(int idcompradetalle);
         string Delete(int idcompradetalle);
+
+        List<ComprasDetalleMod> Getscom(int idcom);
     }
 }

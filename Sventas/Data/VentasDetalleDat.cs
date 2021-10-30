@@ -84,6 +84,24 @@ namespace Sventas.Data
             return _oventasdetalles;
         }
 
+        public List<VentasDetalleMod> Getsventa(int idvdetalle)
+        {
+            using (IDbConnection con = new SqlConnection(Cglobal.ConnectionString))
+            {
+                if (con.State == ConnectionState.Closed) con.Open();
+
+                var query = ("select *from VENTAS_DETALLE where idVenta="+idvdetalle);
+
+                var oventasdetalle = con.Query<VentasDetalleMod>(query).ToList();
+
+                if (oventasdetalle != null && oventasdetalle.Count() > 0)
+                {
+                    _oventasdetalles = oventasdetalle;
+                }
+            }
+            return _oventasdetalles;
+        }
+
         public VentasDetalleMod Save(VentasDetalleMod oventasdetalle)
         {
             
