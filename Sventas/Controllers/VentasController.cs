@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Sventas.Controllers
 {
-    [Authorize]
+    
     [Route("api/[controller]")]
     [ApiController]
     public class VentasController : ControllerBase
