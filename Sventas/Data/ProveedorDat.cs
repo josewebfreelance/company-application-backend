@@ -18,7 +18,7 @@ namespace Sventas.Data
         List<ProveedorMod> _oproveedores = new List<ProveedorMod>();
         public string Delete(int idproveedor)
         {
-            string mensaje = "";
+            //string mensaje = "";
 
             try
             {
@@ -34,17 +34,17 @@ namespace Sventas.Data
                     var oproveedores = con.Query<ProveedorMod>("SP_PROVEEDORES", this.SetParameters(_oproveedor, (int)OpcionSP.Delete),
                         commandType: CommandType.StoredProcedure);
 
-                    mensaje = "Registro Eliminado";
+                    //mensaje = "Registro Eliminado";
                 }
 
             }
             catch (Exception ex)
             {
 
-                mensaje = ex.Message;
+               // mensaje = ex.Message;
             }
 
-            return mensaje;
+            return null;
             
         }
 

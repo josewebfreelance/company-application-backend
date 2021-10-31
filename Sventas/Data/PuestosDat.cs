@@ -17,7 +17,7 @@ namespace Sventas.Data
         List<PuestosMod> _opuestos = new List<PuestosMod>(); 
         public string Delete(int idpuesto)
         {
-            string mensaje = "";
+            //string mensaje = "";
 
             try
             {
@@ -33,17 +33,17 @@ namespace Sventas.Data
                     var opuestos = con.Query<PuestosMod>("SP_PUESTOS", this.SetParameters(_opuesto,(int)OpcionSP.Delete),
                         commandType: CommandType.StoredProcedure);
 
-                    mensaje = "Registro Eliminado";
+                    //mensaje = "Registro Eliminado";
                 }
 
             }
             catch (Exception ex)
             {
 
-                mensaje = ex.Message;
+                //mensaje = ex.Message;
             }
 
-            return mensaje;
+            return null;
         }
 
         public PuestosMod Get(int idPuesto)

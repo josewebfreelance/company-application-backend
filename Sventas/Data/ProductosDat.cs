@@ -18,7 +18,7 @@ namespace Sventas.Data
         List<ProductosMod> _oproductos = new List<ProductosMod>();
         public string Delete(int idproducto)
         {
-            string mensaje = "";
+            //string mensaje = "";
 
             try
             {
@@ -33,17 +33,17 @@ namespace Sventas.Data
                     var oproducto = con.Query<ProductosMod>("SP_PRODUCTOS", this.SetParameters(_oproducto, (int)OpcionSP.Delete),
                         commandType: CommandType.StoredProcedure);
 
-                    mensaje = "Registro Eliminado";
+                    //mensaje = "Registro Eliminado";
                 }
 
             }
             catch (Exception ex)
             {
 
-                mensaje = ex.Message;
+                //mensaje = ex.Message;
             }
 
-            return mensaje;
+            return null;
         }
 
         public ProductosMod Get(int idproducto)

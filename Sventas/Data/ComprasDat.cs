@@ -18,7 +18,7 @@ namespace Sventas.Data
         List<ComprasMod> _ocompras = new List<ComprasMod>();
         public string Delete(int idcompra)
         {
-            string mensaje = "";
+            //string mensaje = "";
 
             try
             {
@@ -33,17 +33,17 @@ namespace Sventas.Data
                     var compra = con.Query<ComprasMod>("SP_COMPRAS", this.SetParameters(_ocompra, (int)OpcionSP.Delete),
                         commandType: CommandType.StoredProcedure);
 
-                    mensaje = "Registro Eliminado";
+                    //mensaje = "Registro Eliminado";
                 }
 
             }
             catch (Exception ex)
             {
 
-                mensaje = ex.Message;
+               // mensaje = ex.Message;
             }
 
-            return mensaje;
+            return null;
         }
 
         public ComprasMod Get(int idcompra)

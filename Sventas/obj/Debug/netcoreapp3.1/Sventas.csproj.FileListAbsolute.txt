@@ -73,4 +73,3 @@ C:\Users\Junior\source\repos\Sventas\Sventas\obj\Debug\netcoreapp3.1\Sventas.csp
 C:\Users\Junior\source\repos\Sventas\Sventas\obj\Debug\netcoreapp3.1\Sventas.dll
 C:\Users\Junior\source\repos\Sventas\Sventas\obj\Debug\netcoreapp3.1\Sventas.pdb
 C:\Users\Junior\source\repos\Sventas\Sventas\obj\Debug\netcoreapp3.1\Sventas.genruntimeconfig.cache
-C:\Users\Junior\source\repos\Sventas\Sventas\obj\Debug\netcoreapp3.1\Sventas.csproj.AssemblyReference.cache

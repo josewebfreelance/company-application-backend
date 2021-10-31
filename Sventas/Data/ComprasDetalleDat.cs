@@ -18,7 +18,7 @@ namespace Sventas.Data
         List<ComprasDetalleMod> _comprasdetalles = new List<ComprasDetalleMod>();
         public string Delete(int idcompradetalle)
         {
-            string mensaje = "";
+            //string mensaje = "";
 
             try
             {
@@ -34,17 +34,17 @@ namespace Sventas.Data
                     var compradetalle = con.Query<ComprasDetalleMod>("SP_COMPRAS_DETALLE", this.SetParameters(_compradetalle, (int)OpcionSP.Delete),
                         commandType: CommandType.StoredProcedure);
 
-                    mensaje = "Registro Eliminado";
+                    //mensaje = "Registro Eliminado";
                 }
 
             }
             catch (Exception ex)
             {
 
-                mensaje = ex.Message;
+                //mensaje = ex.Message;
             }
 
-            return mensaje;
+            return null;
         }
 
         public ComprasDetalleMod Get(int idcompradetalle)

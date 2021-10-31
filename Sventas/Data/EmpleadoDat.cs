@@ -18,7 +18,7 @@ namespace Sventas.Data
         List<EmpleadoMod> _oempleados = new List<EmpleadoMod>();
         public string Delete(int idempleado)
         {
-            string mensaje = "";
+           // string mensaje = "";
 
             try
             {
@@ -34,17 +34,17 @@ namespace Sventas.Data
                     var empleado = con.Query<EmpleadoMod>("SP_EMPLEADOS", this.SetParameters(_oempleado, (int)OpcionSP.Delete),
                         commandType: CommandType.StoredProcedure);
 
-                    mensaje = "Registro Eliminado";
+                    //mensaje = "Registro Eliminado";
                 }
 
             }
             catch (Exception ex)
             {
 
-                mensaje = ex.Message;
+                //mensaje = ex.Message;
             }
 
-            return mensaje;
+            return null;
         }
 
         public EmpleadoMod Get(int idempleado)

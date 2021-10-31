@@ -18,7 +18,7 @@ namespace Sventas.Data
         List<VentasMod> _oventas = new List<VentasMod>();
         public string Delete(int idventa)
         {
-            string mensaje = "";
+            //string mensaje = "";
 
             try
             {
@@ -34,17 +34,17 @@ namespace Sventas.Data
                     var venta = con.Query<VentasMod>("SP_VENTAS", this.SetParameters(_oventa, (int)OpcionSP.Delete),
                         commandType: CommandType.StoredProcedure);
 
-                    mensaje = "Registro Eliminado";
+                   // mensaje = "Registro Eliminado";
                 }
 
             }
             catch (Exception ex)
             {
 
-                mensaje = ex.Message;
+               // mensaje = ex.Message;
             }
 
-            return mensaje;
+            return null;
         }
 
         public VentasMod Get(int idventa)

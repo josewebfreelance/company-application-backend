@@ -18,7 +18,7 @@ namespace Sventas.Data
         List<ClientesMod> _oclientes = new List<ClientesMod>();
         public string Delete(int idcliente)
         {
-            string mensaje = "";
+            //string mensaje = "";
 
             try
             {
@@ -34,17 +34,17 @@ namespace Sventas.Data
                     var oclientes = con.Query<ClientesMod>("SP_CLIENTES", this.SetParameters(_ocliente, (int)OpcionSP.Delete),
                         commandType: CommandType.StoredProcedure);
 
-                    mensaje = "Registro Eliminado";
+                   // mensaje = "Registro Eliminado";
                 }
 
             }
             catch (Exception ex)
             {
 
-                mensaje = ex.Message;
+                //mensaje = ex.Message;
             }
 
-            return mensaje;
+            return null;
         }
 
         public ClientesMod Get(int idcliente)
